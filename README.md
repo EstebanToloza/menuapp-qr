@@ -1,3 +1,3 @@
 # MenuApp - QR Menu
 
-https://raw.githubusercontent.com/EstebanToloza/menuapp-qr/main/readme-assets/qr-code.png
+![Image text](https://github.com/EstebanToloza/menuapp-qr/blob/main/readme-assets/qr-code.png)
