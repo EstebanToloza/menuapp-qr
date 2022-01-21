@@ -31,12 +31,39 @@ const App = () => {
     fetchData();
   }, []);
 
-  console.log("products", products)
+  const producstByCategory = {}
+  for (let product of products) {
+    const category = product.category;
+    const foundProducts = producstByCategory[category];
+    if(!foundProducts) {
+      producstByCategory[category] = [product];
+      continue;
+    }
+    foundProducts.push(product)
+  }
+
+    const categorysList = Object.keys(producstByCategory);
+    console.log(producstByCategory)
 
   
   return (
     <div className="App">
       <h1>AppMenu</h1>
+      {
+        categorysList.map((category) => (
+          <div key={category}>
+            <p>{category}</p>
+            <ul>
+              {producstByCategory[category].map(product => (
+                <div key={product.dish}>
+                  <li>{`${product.dish} - ${product.descripcion} - $${product.price}`}</li>
+                </div>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+
     </div>
   );
 }
