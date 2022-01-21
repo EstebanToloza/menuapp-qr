@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/EstebanToloza/menuapp-qr/static/css/main.e6c13ad2.css",
+    "main.js": "/EstebanToloza/menuapp-qr/static/js/main.b620dbbb.js",
+    "index.html": "/EstebanToloza/menuapp-qr/index.html",
+    "main.e6c13ad2.css.map": "/EstebanToloza/menuapp-qr/static/css/main.e6c13ad2.css.map",
+    "main.b620dbbb.js.map": "/EstebanToloza/menuapp-qr/static/js/main.b620dbbb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.b620dbbb.js"
+  ]
+}
