@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Card product */
+.category-container {
+  border-radius: 12px;
+}
+.products-list {
+  padding-left: 0;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-description {
+  font-size: 14px;
+  color: #848484;
+}

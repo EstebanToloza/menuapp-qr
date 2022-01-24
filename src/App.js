@@ -48,15 +48,34 @@ const App = () => {
   
   return (
     <div className="App">
-      <h1>AppMenu</h1>
-      {
+      <h1 className="text-center mt-3">AppMenu</h1>
+      <hr />
+
+      {!products.length && 
+        <div className="d-flex justify-content-center" style={{position: 'relative', top: 250}}>
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      }
+    
+      {products.length > 0 &&
         categorysList.map((category) => (
-          <div key={category}>
-            <p>{category}</p>
-            <ul>
+          <div key={category} className="m-3 p-3 border bg-light category-container">
+            <h4>{category}</h4>
+            <ul className="products-list p-2 mb-0">
               {producstByCategory[category].map(product => (
                 <div key={product.dish}>
-                  <li>{`${product.dish} - ${product.descripcion} - $${product.price}`}</li>
+                  <li className="product-info mb-3">
+                    <div>
+                      <div>{product.dish}</div>
+                      <div class="font-weight-light product-description">{product.descripcion}</div>
+                    </div>
+                    <div>
+                      {`$${product.price}`}
+                    </div>
+
+                  </li>
                 </div>
               ))}
             </ul>
