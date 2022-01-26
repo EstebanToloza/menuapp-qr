@@ -5,6 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  min-height: 100%;
 }
 
 code {
@@ -28,4 +38,18 @@ code {
 .product-description {
   font-size: 14px;
   color: #848484;
+}
+
+/* Main */
+main {
+  min-height: 100%;
+  padding-bottom: 50px;
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
