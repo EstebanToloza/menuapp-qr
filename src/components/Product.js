@@ -1,21 +1,23 @@
 import React from 'react';
 
-const Product = ({ producstByCategory, category }) => {
+const Product = ({ productsByCategory, category }) => {
+
+  const isOutStock = "no"
 
   return (
     <>
-        {producstByCategory[category].map(product => (
-            <div key={product.dish}>
+        {productsByCategory[category].map(product => (
+          <div key={product.dish}>
             <li className="product-info mb-3">
                 <div>
-                <div>{product.dish}</div>
-                <div className="font-weight-light product-description">{product.descripcion}</div>
+                  <div>{product.dish}</div>
+                  <div className="font-weight-light product-description">{product.descripcion}</div>
                 </div>
                 <div>
-                {`$${product.price}`}
+                  {product.stock === isOutStock ? "No disponible" : `$${product.price}`}
                 </div>
             </li>
-            </div>
+          </div>
         ))}
     </>
   );

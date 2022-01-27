@@ -2,7 +2,7 @@ import React from 'react';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
-import ProductsCategorysCard from './ProductsCategorysCard';
+import ProductsCategoriesCard from './ProductsCategoriesCard';
 
 const ProductsList = () => {
   
@@ -32,6 +32,7 @@ const ProductsList = () => {
     }
     fetchData();
   }, []);
+
   
   return (
     <>
@@ -42,7 +43,7 @@ const ProductsList = () => {
           </div>
         </div>
       ) : (
-        <ProductsCategorysCard products={products} />
+        <ProductsCategoriesCard products={products} />
       )}
     </>
   );
