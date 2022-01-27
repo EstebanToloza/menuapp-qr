@@ -8,8 +8,7 @@ const Layout = () => {
     return (
         <>
             <header className='header'>
-                <h1 className="text-center mt-3">AppMenu</h1>
-                <hr />
+                <h1 className="text-center mt-3 mb-4">AppMenu</h1>
             </header>
             <main>
                 <ProductsList />
