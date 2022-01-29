@@ -3,6 +3,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import ProductsCategoriesCard from './ProductsCategoriesCard';
+import { Accordion } from 'react-bootstrap';
+
+
 
 const ProductsList = () => {
   
@@ -43,7 +46,9 @@ const ProductsList = () => {
           </div>
         </div>
       ) : (
-        <ProductsCategoriesCard products={products} />
+        <Accordion defaultActiveKey="0">
+          <ProductsCategoriesCard products={products} />
+        </Accordion>
       )}
     </>
   );

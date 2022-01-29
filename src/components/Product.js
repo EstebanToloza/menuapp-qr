@@ -10,10 +10,10 @@ const Product = ({ productsByCategory, category }) => {
           <div key={product.dish}>
             <li className="product-info mb-3">
                 <div>
-                  <div>{product.dish}</div>
+                  <div className="product-name">{product.dish}</div>
                   <div className="font-weight-light product-description">{product.descripcion}</div>
                 </div>
-                <div>
+                <div className="product-price">
                   {product.stock === isOutStock ? "No disponible" : `$${product.price}`}
                 </div>
             </li>

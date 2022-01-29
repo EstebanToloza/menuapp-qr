@@ -1,5 +1,7 @@
 import React from 'react';
+import { Accordion } from 'react-bootstrap';
 import Product from './Product';
+
 
 const ProductsCategoriesCard = ({ products }) => {
   
@@ -31,12 +33,18 @@ const ProductsCategoriesCard = ({ products }) => {
   return (
     <>
       {avaiableCategories.map((category) => (
-        <div key={category} className="m-3 p-3 border bg-light category-container">
-          <h4>{category}</h4>
-          <ul className="products-list p-2 mb-0">
-            <Product productsByCategory={productsByCategory} category={category} />
-          </ul>
-        </div>
+        <Accordion.Item eventKey={category} key={category} className="mx-3">
+          <>
+          <Accordion.Header>{category}</Accordion.Header>
+          <Accordion.Body className="pb-0">
+            <div key={category} >
+              <ul className="products-list py-2 mb-0">
+                <Product productsByCategory={productsByCategory} category={category} />
+              </ul>
+            </div>
+          </Accordion.Body>
+          </>
+        </Accordion.Item>
       ))}
     </>
   );

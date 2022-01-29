@@ -1,3 +1,9 @@
+:root {
+  --fz-large: 16px;
+  --fz-medium: 14px;
+  --fz-small: 11px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -28,6 +34,10 @@ main  {
 }
 
 /* Card product */
+.accordion-header button {
+  font-weight: 600;
+}
+
 .category-container {
   border-radius: 12px;
 }
@@ -50,6 +60,10 @@ main  {
 .product-description {
   font-size: 14px;
   color: #848484;
+}
+
+.product-name, .product-price {
+  font-size: var(--fz-medium);
 }
 
 /* Main */
