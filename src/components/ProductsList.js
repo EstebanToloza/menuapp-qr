@@ -10,11 +10,12 @@ import { Accordion } from 'react-bootstrap';
 const ProductsList = () => {
   
   const [products, setProducts] = useState([])
+  const dataUrl = process.env.REACT_APP_API_URL
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        'https://docs.google.com/spreadsheets/d/e/2PACX-1vTdffsUIOaXwUOPy17qE8Hz1TZNVofcWmiv0e3-04Knv0t3xPyoCl5iJQOlauM1qYAbd6X45-ql71s5/pub?output=csv',
+        dataUrl,
         {
           responseType: 'blob'
         }
