@@ -4,8 +4,6 @@ import Product from './Product';
 
 
 const ProductsCategoriesCard = ({ products }) => {
-
-  console.log(products)
   
   //Products grouped by categories
   const productsByCategory = {}

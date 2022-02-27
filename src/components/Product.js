@@ -1,8 +1,25 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { CartContext } from '../context/cartContext';
 
 const Product = ({ productsByCategory, category }) => {
 
-  const isOutStock = "no"
+  const isOutStock = "no";
+
+  const {cart, setCart} = useContext(CartContext);
+
+  const handleAddToCart = (product) => {
+    //setCart(cart + 1)
+    setCart([...cart, 
+      product
+    ])
+    console.log(cart)
+  }
+
+  const handleRemoveToCart = (product) => {
+    const dish = product.dish;
+    const cartItems = cart.filter(product => product.dish !== dish)
+    setCart(cartItems)
+  }
 
   return (
     <>
@@ -14,7 +31,18 @@ const Product = ({ productsByCategory, category }) => {
                   <div className="font-weight-light product-description">{product.descripcion}</div>
                 </div>
                 <div className="product-price">
-                  {product.stock === isOutStock ? "No disponible" : `$${product.price}`}
+                  {
+                    product.stock === isOutStock ? 
+                      "No disponible" 
+                    : 
+                      <div>
+                        <div>{`$${product.price}`}</div>
+                        <div className="add-remove-cart-container">
+                          <button onClick={() => handleAddToCart(product)}>ADD TO CART</button>
+                          <button onClick={() => handleRemoveToCart(product)}>REMOVE TO CART</button>
+                        </div>
+                      </div>
+                  }
                 </div>
             </li>
           </div>

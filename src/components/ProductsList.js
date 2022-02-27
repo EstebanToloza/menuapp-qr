@@ -9,8 +9,6 @@ import { CartContext } from '../context/cartContext';
 const ProductsList = () => {
 
   const { cart, setCart } = useContext(CartContext)
-
-  console.log(cart)
   
   const [products, setProducts] = useState([])
   const dataUrl = process.env.REACT_APP_API_URL
