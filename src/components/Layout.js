@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { CartContext } from '../context/cartContext';
+import { CartContext } from '../context/CartContext';
 import ProductsList from './ProductsList';
 
 
@@ -18,7 +18,7 @@ const Layout = () => {
                 <ProductsList />
             </main>
             <footer className='footer mb-3'>
-                <div>Products agregados: {cart.length}</div>
+                <div>Products agregados: </div>
                 <span>
                     MenuApp. Todos los derechos reservados, {date}.
                 </span>

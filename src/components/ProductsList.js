@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import ProductsCategoriesCard from './ProductsCategoriesCard';
 import { Accordion } from 'react-bootstrap';
-import { CartContext } from '../context/cartContext';
+import { CartContext } from '../context/CartContext';
 
 const ProductsList = () => {
 

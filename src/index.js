@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { CartContextProvider } from './context/cartContext';
+import { CartProvider } from './context/CartContext';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <CartContextProvider>
+    <CartProvider>
       <App />
-    </CartContextProvider>
+    </CartProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
