@@ -11,14 +11,14 @@ const Product = ({ productsByCategory, category }) => {
 
   return (
     <>
-        {productsByCategory[category].map(((product, i) => {
-          const productId = i;
+        {productsByCategory[category].map(((product) => {
+          const currentProduct = {...product, amount: 0};
           return (
-            <div key={product.dish}>
+            <div key={currentProduct.dish}>
               <li className="product-info mb-3">
                   <div>
-                    <div className="product-name">{product.dish}</div>
-                    <div className="font-weight-light product-description">{product.descripcion}</div>
+                    <div className="product-name">{currentProduct.dish}</div>
+                    <div className="font-weight-light product-description">{currentProduct.descripcion}</div>
                   </div>
                   <div className="product-price">
                     {
@@ -28,8 +28,8 @@ const Product = ({ productsByCategory, category }) => {
                         <div>
                           <div>{`$${product.price}`}</div>
                           <div className="add-remove-cart-container">
-                            <button onClick={() => AddItemToCart(product)}>ADD TO CART</button>
-                            <button onClick={() => DeleteItemToCart(productId)}>REMOVE TO CART</button>
+                            <button onClick={() => AddItemToCart(currentProduct)}>ADD TO CART</button>
+                            <button onClick={() => DeleteItemToCart(currentProduct.id)}>REMOVE TO CART</button>
                           </div>
                         </div>
                     }

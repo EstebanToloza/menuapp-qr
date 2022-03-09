@@ -26,7 +26,7 @@ const CartProvider = ({ children }) => {
   const AddItemToCart = (product) => {
     /* Recibimos un producto y nos fijamos si ya esta en el carrito */
     const inCart = cartItems.find(
-      (productInCart) => productInCart.dish === product.dish
+      (productInCart) => productInCart.id === product.id
     );
 
     /* Si el producto se encuentra en el carrito, recorremos el carrito
@@ -34,7 +34,7 @@ const CartProvider = ({ children }) => {
     if (inCart) {
       setCartItems(
         cartItems.map((productInCart) => {
-          if (productInCart.dish === product.dish) {
+          if (productInCart.id === product.id) {
             return { ...inCart, amount: inCart.amount + 1 };
           } else return productInCart;
         })
@@ -53,7 +53,8 @@ const CartProvider = ({ children }) => {
     );
 
     /* Si la cantidad del producto es igual a 1, filtramos el carrito y lo sacamos */
-    if (inCart.amount === 1) {
+    if (parseInt(inCart.amount) === 1) {
+      console.log(typeof inCart.amount)
       setCartItems(
         cartItems.filter((productInCart) => productInCart.id !== id)
       );

@@ -6,7 +6,7 @@ import ProductsList from './ProductsList';
 const Layout = () => {
 
     const date = new Date().getFullYear()
-    const { cart } = useContext(CartContext)
+    const { cartItems } = useContext(CartContext)
 
 
     return (
@@ -18,7 +18,7 @@ const Layout = () => {
                 <ProductsList />
             </main>
             <footer className='footer mb-3'>
-                <div>Products agregados: </div>
+                <pre>{JSON.stringify(cartItems, null, 2)}</pre>
                 <span>
                     MenuApp. Todos los derechos reservados, {date}.
                 </span>
