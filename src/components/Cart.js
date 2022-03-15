@@ -18,9 +18,15 @@ const Cart = () => {
         return (
             <Modal show={showCart} onHide={handleCloseCart} centered>
             <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
+              <Modal.Title>Orden Mesa 2</Modal.Title>
             </Modal.Header>
-            <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+            <Modal.Body>
+                
+                {cartItems.map(item => (
+                    <p key={item.id}>{item.dish}</p>
+                ))}
+
+            </Modal.Body>
           </Modal>
         )
     }
