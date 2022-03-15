@@ -73,7 +73,15 @@ main {
   padding-bottom: 50px;
 }
 
-/*  */
+/* Modal / resume */
+.cart-container-product {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-amount {
+  color: #848484;
+}
 
 /* Footer */
 .footer {

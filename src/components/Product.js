@@ -36,12 +36,12 @@ const Product = ({ productsByCategory, category }) => {
                         <div>
                           <div>{`$${product.price}`}</div>
                           <div className="add-remove-cart-container">
-                            <button onClick={() => AddItemToCart(product)}>+</button>
-                            <span>{itemQty}</span>
                             <button 
                               onClick={() => DeleteItemToCart(product.id)}
                               disabled={inCart ? false : true}
                             >-</button>
+                            <span>{itemQty}</span>
+                            <button onClick={() => AddItemToCart(product)}>+</button>
                           </div>
                         </div>
                     }

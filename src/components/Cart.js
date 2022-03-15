@@ -21,10 +21,24 @@ const Cart = () => {
               <Modal.Title>Orden Mesa 2</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                
-                {cartItems.map(item => (
-                    <p key={item.id}>{item.dish}</p>
-                ))}
+                {cartItems.map(item => {
+                    const itemTotal = item.amount * parseInt(item.price);
+
+                    return (
+                        <div key={item.id} className="cart-container-product mb-3 py-3">
+                            <div className='cart-product-info'>
+                                <span className='item-name mr-2'>{item.dish}</span>
+                                x
+                                <span className='item-amount ml-2'>{item.amount}u.</span>
+                            </div>
+                            <div className='cart-product-price-and-actions'>
+                                <span className='item-total'>{`$${itemTotal}`}</span>
+                                <div className='item-actions'>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })}
 
             </Modal.Body>
           </Modal>
