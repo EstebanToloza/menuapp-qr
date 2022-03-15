@@ -1,13 +1,10 @@
-import React, {useContext} from 'react';
-import { CartContext } from '../context/CartContext';
+import React from 'react';
 import ProductsList from './ProductsList';
 
 
 const Layout = () => {
 
     const date = new Date().getFullYear()
-    const { cartItems } = useContext(CartContext)
-
 
     return (
         <>
@@ -18,7 +15,7 @@ const Layout = () => {
                 <ProductsList />
             </main>
             <footer className='footer mb-3'>
-                <pre>{JSON.stringify(cartItems, null, 2)}</pre>
+                {/* <span>{cartItems.length}</span> */}
                 <span>
                     MenuApp. Todos los derechos reservados, {date}.
                 </span>

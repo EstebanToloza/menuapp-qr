@@ -1,14 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import ProductsCategoriesCard from './ProductsCategoriesCard';
 import { Accordion } from 'react-bootstrap';
-import { CartContext } from '../context/CartContext';
 
 const ProductsList = () => {
-
-  const { cart, setCart } = useContext(CartContext)
   
   const [products, setProducts] = useState([])
   const dataUrl = process.env.REACT_APP_API_URL
@@ -50,7 +47,6 @@ const ProductsList = () => {
       ) : (
         <Accordion defaultActiveKey="0">
           <ProductsCategoriesCard products={products} />
-          <button onClick={() => setCart("carrito actualizado")}>actualizar carrito</button>
         </Accordion>
       )}
     </>

@@ -38,7 +38,7 @@ const ProductsCategoriesCard = ({ products }) => {
           <Accordion.Body className="pb-0">
             <div key={category} >
               <ul className="products-list py-2 mb-0">
-                <Product productsByCategory={productsByCategory} category={category} />
+                <Product productsByCategory={productsByCategory} category={category} products={products} />
               </ul>
             </div>
           </Accordion.Body>
