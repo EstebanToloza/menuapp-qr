@@ -34,6 +34,7 @@ main  {
 }
 
 /* Card product */
+
 .accordion-header button {
   font-weight: 600;
 }
@@ -72,10 +73,44 @@ main {
   padding-bottom: 50px;
 }
 
+/*  */
+
 /* Footer */
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.cart-container {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #E76F51;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.cart-container svg {
+  width: 30px;
+  height: 30px;
+}
+
+.cart-qty {
+  position: absolute;
+  top: -5px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: #2A9D8F;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

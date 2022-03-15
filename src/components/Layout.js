@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+import Cart from './Cart';
 import ProductsList from './ProductsList';
-
 
 const Layout = () => {
 
     const date = new Date().getFullYear()
+    const { cartItems } = useContext(CartContext);
+
+    const cartEmpty = cartItems.length === 0
 
     return (
         <>
@@ -15,7 +19,7 @@ const Layout = () => {
                 <ProductsList />
             </main>
             <footer className='footer mb-3'>
-                {/* <span>{cartItems.length}</span> */}
+                {!cartEmpty && <Cart />}
                 <span>
                     MenuApp. Todos los derechos reservados, {date}.
                 </span>
