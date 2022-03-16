@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { ModalFooter } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { CartContext } from '../context/CartContext';
 
@@ -8,12 +9,30 @@ const CartResume = ({cartItems, showCart, setShowCart}) => {
     const handleCloseCart = () => setShowCart(false);
     const cartTotal = cartItems.reduce((prev, current) => prev + current.amount * current.price, 0);
 
+    const UserWindowHeight = () => {
+        const [height, setHeight] = useState([window.innerHeight]);
+        useEffect(() => {
+          const HeightResize = () => {
+            setHeight(window.innerHeight);
+          };
+          window.addEventListener('resize', HeightResize);
+        }, []);
+        return height;
+      }
+    
+      const windowHeight = UserWindowHeight();
+      const maxHeight = `${windowHeight /100 * 60}px`;
+      console.log(windowHeight)
+
+    
+
+
     return (
         <Modal show={showCart} onHide={handleCloseCart} centered>
             <Modal.Header closeButton>
                 <Modal.Title>Orden Mesa 2</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body style={{ maxHeight: maxHeight }}>
                 {cartItems.map(item => {
                     const itemTotal = item.amount * parseInt(item.price);
                     return (
@@ -46,14 +65,16 @@ const CartResume = ({cartItems, showCart, setShowCart}) => {
                         </div>
                     )
                 })}
-                <div className='cart-total-container pt-3 d-flex justify-content-between'>
+            </Modal.Body>
+            <div className='modal-footer-container'>
+                <div className='cart-total-container d-flex justify-content-between'>
                     <span className='total-text'>Total a pagar:</span>
                     <span className='total-price'>{`$${cartTotal}`}</span>
                 </div>
                 <div className='mx-auto text-center mt-4'>
                     <button className='btn btn-block btn-make-order'>REALIZAR PEDIDO</button>
                 </div>
-            </Modal.Body>
+            </div>
         </Modal>
     )
 }
