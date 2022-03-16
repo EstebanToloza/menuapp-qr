@@ -96,6 +96,21 @@ main {
   overflow: scroll;
 }
 
+.modal-body::-webkit-scrollbar-track {
+  border: none;
+  background-color: transparent;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #adadad;
+  border: none;
+}
+
 .cart-container-product {
   display: flex;
   justify-content: space-between;
@@ -108,8 +123,11 @@ main {
 
 .cart-product-price-and-actions {
   display: flex;
-  gap: 15px;
   font-size: var(--fz-medium);
+}
+
+.item-actions {
+  margin-left: 15px;
 }
 
 .add-remove-cart-container {
@@ -194,6 +212,7 @@ main {
   align-items: center;
   border-radius: 50%;
   color: #fff;
+  cursor: pointer;
 }
 
 .cart-container svg {
