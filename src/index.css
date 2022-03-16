@@ -2,6 +2,12 @@
   --fz-large: 16px;
   --fz-medium: 14px;
   --fz-small: 11px;
+  --color-gray: #848484;
+  --color-light-gray: #dee2e6;
+  --color-orange: #F4A261;
+  --color-dark-orange: #E76F51;
+  --color-green: #2A9D8F;
+  --color-dark-green: #264653;
 }
 
 body {
@@ -34,7 +40,6 @@ main  {
 }
 
 /* Card product */
-
 .accordion-header button {
   font-weight: 600;
 }
@@ -49,18 +54,18 @@ main  {
 .product-info {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
   width: 100%;
-  padding: 15px 10px;
+  padding: 15px 15px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-gray);
   border-radius: 8px;
-  background: white;
+  background: #fff;
 }
 
 .product-description {
   font-size: 14px;
-  color: #848484;
+  color: var(--color-gray);
 }
 
 .product-name, .product-price {
@@ -74,13 +79,66 @@ main {
 }
 
 /* Modal / resume */
+.modal-body {
+  padding: 30px !important;
+  padding-top: 15px !important;
+}
+
 .cart-container-product {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.cart-product-price-and-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.add-remove-cart-container {
+  display: flex;
+  /* border: 1px solid var(--color-gray);
+  border-radius: 10px; */
+}
+
+.add-remove-cart-container .item-qty {
+  display: inline-block;
+  width: 30px;
+  height: 25px;
+  text-align: center;
+  border-top: 1px solid var(--color-light-gray);
+  border-bottom: 1px solid var(--color-light-gray);
+}
+
+.btn-add, .btn-remove {
+  border: none;
+  background-color: var(--color-green);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  width: 22px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4px;
+}
+
+.btn-add {
+  border-radius: 10px 0px 0px 10px;
+}
+
+.btn-remove {
+  border-radius: 0px 10px 10px 0px;
 }
 
 .item-amount {
-  color: #848484;
+  color: var(--color-gray);
+}
+
+.btn-make-order {
+  background-color: var(--color-green) !important;
+  color: #fff !important;
 }
 
 /* Footer */
@@ -97,7 +155,7 @@ main {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #E76F51;
+  background: var(--color-dark-orange);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,7 +174,7 @@ main {
   right: 0;
   width: 20px;
   height: 20px;
-  background: #2A9D8F;
+  background: var(--color-green);
   border-radius: 50%;
   display: flex;
   justify-content: center;

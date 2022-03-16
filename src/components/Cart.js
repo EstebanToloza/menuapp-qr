@@ -1,14 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { BagCheck } from 'react-bootstrap-icons';
 import { CartContext } from '../context/CartContext';
-import { Button } from 'react-bootstrap';
 import CartResume from './CartResume';
 
 const Cart = () => {
 
     const { cartItems } = useContext(CartContext);
     const [showCart, setShowCart] = useState(false);
-
 
     return (
         <>

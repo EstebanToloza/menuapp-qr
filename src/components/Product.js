@@ -33,15 +33,25 @@ const Product = ({ productsByCategory, category }) => {
                       product.stock === isOutStock ? 
                         "No disponible" 
                       : 
-                        <div>
-                          <div>{`$${product.price}`}</div>
-                          <div className="add-remove-cart-container">
-                            <button 
-                              onClick={() => DeleteItemToCart(product.id)}
-                              disabled={inCart ? false : true}
-                            >-</button>
-                            <span>{itemQty}</span>
-                            <button onClick={() => AddItemToCart(product)}>+</button>
+                        <div className='cart-product-price-and-actions'>
+                          <span className='item-total'>{`$${product.price}`}</span>
+                          <div className='item-actions'>
+                            <div className="add-remove-cart-container">
+                              <button 
+                                  onClick={() => DeleteItemToCart(product.id)}
+                                  className='btn-add'
+                                  disabled={inCart ? false : true}
+                              >
+                                  <span>-</span>
+                              </button>
+                              <span className='item-qty'>{itemQty}</span>
+                              <button 
+                                  onClick={() => AddItemToCart(product)}
+                                  className='btn-remove'
+                              >
+                                  <span>+</span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                     }
