@@ -42,6 +42,9 @@ const CartResume = ({cartItems, showCart, setShowCart}) => {
             <span className='total-text'>Total a pagar:</span>
             <span className='total-price'>{`$${cartTotal}`}</span>
         </div>
+        <div className='mx-auto text-center mt-4'>
+            <button className='btn btn-block btn-success'>REALIZAR PEDIDO</button>
+        </div>
 
     </Modal.Body>
   </Modal>
