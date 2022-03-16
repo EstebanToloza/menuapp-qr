@@ -13,14 +13,14 @@ const Layout = () => {
     return (
         <>
             <header className='header'>
-                <h1 className="text-center mt-3 mb-4">AppMenu</h1>
+                <h1 className="text-center mb-4">AppMenu</h1>
             </header>
             <main>
                 <ProductsList />
             </main>
             <footer className='footer mb-3'>
                 {!cartEmpty && <Cart />}
-                <span>
+                <span className='footer-text'>
                     MenuApp. Todos los derechos reservados, {date}.
                 </span>
             </footer>

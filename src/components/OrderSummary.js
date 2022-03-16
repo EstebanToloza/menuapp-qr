@@ -10,7 +10,7 @@ const OrderSummary = ({cartItems, cartTotal, setStep, checkoutSteps }) => {
         {cartItems.map(item => {
             const itemTotal = item.amount * parseInt(item.price);
             return (
-                <div key={item.id} className="cart-container-product mb-1 py-3 border-bottom" >
+                <div key={item.id} className="cart-container-product mb-1 p-3" >
                     <div className='cart-product-info d-flex flex-column'>
                         <span className='item-name'>{item.dish}</span>
                         <span className='item-amount'>x {item.amount}u.</span>

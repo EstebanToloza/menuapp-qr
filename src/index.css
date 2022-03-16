@@ -4,6 +4,7 @@
   --fz-small: 11px;
   --color-gray: #848484;
   --color-light-gray: #dee2e6;
+  --color-bg-light: #f1f4f6;
   --color-orange: #F4A261;
   --color-dark-orange: #E76F51;
   --color-green: #2A9D8F;
@@ -35,6 +36,17 @@ code {
     monospace;
 }
 
+.product-name, .item-name, .item-total, .item-qty, .total-text, .total-price, .modal-title, .footer-text {
+  color: var(--color-dark-green);
+}
+
+header h1 {
+  margin-top: 0 !important;
+  padding: 1rem;
+  background: var(--color-green);
+  color: white;
+}
+
 main  {
   max-width: 800px;
   margin: auto;
@@ -43,6 +55,25 @@ main  {
 /* Card product */
 .accordion-header button {
   font-weight: 600;
+}
+
+.accordion-button {
+  color: var(--color-dark-green) !important;
+}
+
+.accordion-button:focus {
+  border-color: var(--color-green) !important;
+  box-shadow: 0 0 0 0.10rem var(--color-green) !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--color-dark-green) !important;
+  background-color: #e5ffde !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  color: var(--color-dark-green) !important;
+  background-image: url("./assets/vectorpaint.svg") !important;
 }
 
 .category-container {
@@ -90,7 +121,7 @@ main {
 }
 
 .modal-body {
-  padding: 30px !important;
+  padding: 20px !important;
   padding-top: 10px !important;
   padding-bottom: 10px !important;
   overflow: scroll;
@@ -119,6 +150,10 @@ main {
 
 .cart-container-product:last-child {
   border-bottom: none !important;
+}
+
+.cart-container-product:nth-child(odd) {
+  background-color: var(--color-bg-light);
 }
 
 .cart-product-price-and-actions {
@@ -185,7 +220,7 @@ main {
 }
 
 .modal-footer-container {
-  padding: 0 30px 15px 30px;
+  padding: 0 20px 15px 20px;
   border-top: 1px solid var(--color-light-gray);
   padding-top: 20px;
   margin-top: 1rem;
@@ -198,6 +233,10 @@ main {
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.footer-text {
+  font-size: var(--fz-small);
 }
 
 .cart-container {
