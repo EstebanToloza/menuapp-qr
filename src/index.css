@@ -8,6 +8,7 @@
   --color-dark-orange: #E76F51;
   --color-green: #2A9D8F;
   --color-dark-green: #264653;
+  --color-mustard: #E9C46A;
 }
 
 body {
@@ -84,6 +85,10 @@ main {
   padding-top: 5px !important;
 }
 
+.modal-header {
+  margin-bottom: 1rem;
+}
+
 .modal-body {
   padding: 30px !important;
   padding-top: 10px !important;
@@ -156,10 +161,16 @@ main {
   color: #fff !important;
 }
 
+.btn-edit-order {
+  background-color: var(--color-mustard) !important;
+  color: var(--color-dark-green) !important;
+}
+
 .modal-footer-container {
   padding: 0 30px 15px 30px;
   border-top: 1px solid var(--color-light-gray);
   padding-top: 20px;
+  margin-top: 1rem;
 }
 
 

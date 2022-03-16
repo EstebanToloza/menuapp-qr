@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { BagCheck } from 'react-bootstrap-icons';
 import { CartContext } from '../context/CartContext';
-import CartResume from './CartResume';
+import CartCheckout from './CartCheckout';
 
 const Cart = () => {
 
@@ -16,7 +16,7 @@ const Cart = () => {
                     <span>{cartItems.length}</span>
                 </div>
             </div>
-            {showCart && <CartResume cartItems={cartItems} showCart={showCart} setShowCart={setShowCart}/>}
+            {showCart && <CartCheckout cartItems={cartItems} showCart={showCart} setShowCart={setShowCart}/>}
         </>
     )
 }
