@@ -22,42 +22,40 @@ const Product = ({ productsByCategory, category }) => {
           const itemQty = cartItem === 0 ? cartItem : cartItem[0].amount;
 
           return (
-            <div key={product.dish}>
-              <li className="product-info mb-3">
-                  <div>
-                    <div className="product-name">{product.dish}</div>
-                    <div className="font-weight-light product-description">{product.descripcion}</div>
-                  </div>
-                  <div className="product-price">
-                    {
-                      product.stock === isOutStock ? 
-                        "No disponible" 
-                      : 
-                        <div className='cart-product-price-and-actions'>
-                          <span className='item-total'>{`$${product.price}`}</span>
-                          <div className='item-actions'>
-                            <div className="add-remove-cart-container">
-                              <button 
-                                  onClick={() => DeleteItemToCart(product.id)}
-                                  className='btn-add'
-                                  disabled={inCart ? false : true}
-                              >
-                                  <span>-</span>
-                              </button>
-                              <span className='item-qty'>{itemQty}</span>
-                              <button 
-                                  onClick={() => AddItemToCart(product)}
-                                  className='btn-remove'
-                              >
-                                  <span>+</span>
-                              </button>
-                            </div>
+            <li className="product-info" key={product.dish}>
+                <div>
+                  <div className="product-name">{product.dish}</div>
+                  <div className="font-weight-light product-description">{product.descripcion}</div>
+                </div>
+                <div className="product-price">
+                  {
+                    product.stock === isOutStock ? 
+                      "No disponible" 
+                    : 
+                      <div className='cart-product-price-and-actions'>
+                        <span className='item-total'>{`$${product.price}`}</span>
+                        <div className='item-actions'>
+                          <div className="add-remove-cart-container">
+                            <button 
+                                onClick={() => DeleteItemToCart(product.id)}
+                                className='btn-add'
+                                disabled={inCart ? false : true}
+                            >
+                                <span>-</span>
+                            </button>
+                            <span className='item-qty'>{itemQty}</span>
+                            <button 
+                                onClick={() => AddItemToCart(product)}
+                                className='btn-remove'
+                            >
+                                <span>+</span>
+                            </button>
                           </div>
                         </div>
-                    }
-                  </div>
-              </li>
-            </div>
+                      </div>
+                  }
+                </div>
+            </li>
           )
         }))}
     </>

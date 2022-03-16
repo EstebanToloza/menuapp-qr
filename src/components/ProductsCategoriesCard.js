@@ -35,7 +35,7 @@ const ProductsCategoriesCard = ({ products }) => {
       {avaiableCategories.map((category) => (
         <Accordion.Item eventKey={category} key={category} className="mx-3">
           <Accordion.Header>{category}</Accordion.Header>
-          <Accordion.Body className="pb-0">
+          <Accordion.Body>
             <div key={category} >
               <ul className="products-list py-2 mb-0">
                 <Product productsByCategory={productsByCategory} category={category} products={products} />
