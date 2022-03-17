@@ -38,6 +38,10 @@ const CartCheckout = ({cartItems, showCart, setShowCart}) => {
         }
     }
 
+    // const handleSubmit = () => {
+
+    // }
+
     return (
         <Modal show={showCart} onHide={handleCloseCart} centered>
             <Modal.Header closeButton>
@@ -60,16 +64,6 @@ const CartCheckout = ({cartItems, showCart, setShowCart}) => {
                             </button>
                             <button className='btn btn-block btn-edit-order' onClick={handleCloseCart}>
                                 AGREGAR PRODUCTOS
-                            </button>
-                        </>
-                    }
-                    {step === checkoutSteps.STEP_CONFIRM && 
-                        <>
-                            <button className='btn btn-block btn-make-order' onClick={handleSteps}>
-                                REALIZAR PEDIDO
-                            </button>
-                            <button className='btn btn-block btn-edit-order' onClick={handleSteps}>
-                                EDITAR PEDIDO
                             </button>
                         </>
                     }

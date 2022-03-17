@@ -70,10 +70,17 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  const [customer, setCustomer] = useState({});
+
+  const order = {
+    customer, 
+    cartItems
+  };
+
   return (
     /* Envolvemos el children con el provider y le pasamos un objeto con las propiedades que necesitamos por value */
     <CartContext.Provider
-      value={{ cartItems, AddItemToCart, DeleteItemToCart }}
+      value={{ cartItems, AddItemToCart, DeleteItemToCart, customer, setCustomer, order }}
     >
       {children}
     </CartContext.Provider>
