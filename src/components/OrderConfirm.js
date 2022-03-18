@@ -1,42 +1,44 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { CartContext } from '../context/CartContext';
 import Modal from 'react-bootstrap/Modal';
 
 
 const OrderConfirm = ({ cartTotal, handleCloseCart, maxHeight, handleSteps }) => {
-
-  const { setCustomer, order, cartItems } = useContext(CartContext);
+  const { setCustomer, cartItems } = useContext(CartContext);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data, e) => {
-    const customerData = data;
-    setCustomer(customerData)
-    e.target.reset()
-    handleCloseCart()
+    setCustomer(data);
+    e.target.reset();
+    handleCloseCart();
+
+    const wspNumber = '5493412296117';
+    const customerText = `Hola! Mi nombre es *${data.firstName}* y quiero realizar el siguiente pedido:\n\n`;
+    const productsText = cartItems
+      .reduce((message, product) => message.concat(`* ${product.dish} - $${product.price * product.amount}\n`), ``,)
+      .concat(`\n*Total:* $${cartTotal}\n\n`);
+    const additionalComments = data.additionalComments?.length ? `*Comentarios adicionales:* ${data.additionalComments}` : '';
+    const fullMessage = `${customerText}${productsText}${additionalComments}`;
+    window.open(`https://wa.me/${wspNumber}/?text=${encodeURIComponent(fullMessage)}`, "_blank");
   }
 
-   useEffect(() => {
-     console.log(order)
-   }, [order])
-   
-  
-  
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className='needs-validation'>
       <Modal.Body style={{ height: maxHeight }}>
-        <div className='col-md-3 mb-3 p-0'>
+        <div className='col-md-3 mb-4 p-0 position-relative'>
           <input 
             type="text" 
             placeholder="Nombre" 
-            {...register("First name", {required: true, maxLength: 80})} 
+            {...register("firstName", {required: true, maxLength: 80})} 
             className='form-control'
           />
+          <span className='error-message position-absolute'>{errors.firstName?.type === 'required' && "Ingrese su nombre para poder continuar"}</span>
         </div>
         <div className='col-md-3 mb-4 p-0'>
           <textarea 
             placeholder='Comentarios adicionales'
-            {...register("Comentarios adicionales", { maxLength: 500})} 
+            {...register("additionalComments", { maxLength: 500})} 
             className='form-control'
             rows={3}
           />

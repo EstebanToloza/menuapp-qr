@@ -10,6 +10,7 @@
   --color-green: #2A9D8F;
   --color-dark-green: #264653;
   --color-mustard: #E9C46A;
+  --color-error: #ff0000;
 }
 
 body {
@@ -235,11 +236,21 @@ main {
   color: var(--color-dark-green);
 }
 
+.form-control:hover, .form-control:focus, .form-control:active {
+  border-color: #ced4da !important;
+  box-shadow: none !important;
+}
+
 .item-resume-container {
   display: flex;
   justify-content: space-between;
   font-size: var(--fz-small);
   color: var(--color-dark-green);
+}
+
+.error-message {
+  font-size: var(--fz-small);
+  color: var(--color-error);
 }
 
 /* Footer */
