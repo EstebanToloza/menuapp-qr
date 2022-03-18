@@ -1,7 +1,7 @@
 :root {
   --fz-large: 16px;
   --fz-medium: 14px;
-  --fz-small: 11px;
+  --fz-small: 12px;
   --color-gray: #848484;
   --color-light-gray: #dee2e6;
   --color-bg-light: #f1f4f6;
@@ -228,9 +228,19 @@ main {
   padding: 0 20px 15px 20px;
   border-top: 1px solid var(--color-light-gray);
   padding-top: 20px;
-  margin-top: 1rem;
 }
 
+.order-resume-container {
+  background: var(--color-bg-light);
+  color: var(--color-dark-green);
+}
+
+.item-resume-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fz-small);
+  color: var(--color-dark-green);
+}
 
 /* Footer */
 .footer {

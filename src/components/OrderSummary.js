@@ -3,7 +3,7 @@ import { CartContext } from '../context/CartContext';
 import Modal from 'react-bootstrap/Modal';
 
 
-const OrderSummary = ({cartItems, cartTotal, setStep, checkoutSteps, maxHeight, step, handleSteps, handleCloseCart }) => {
+const OrderSummary = ({cartItems, cartTotal, maxHeight, handleSteps, handleCloseCart }) => {
     const { DeleteItemToCart, AddItemToCart } = useContext(CartContext);
 
   return (

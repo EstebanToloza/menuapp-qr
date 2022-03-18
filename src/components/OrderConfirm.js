@@ -6,17 +6,15 @@ import Modal from 'react-bootstrap/Modal';
 
 const OrderConfirm = ({ cartTotal, handleCloseCart, maxHeight, handleSteps }) => {
 
-  const { setCustomer, order } = useContext(CartContext);
+  const { setCustomer, order, cartItems } = useContext(CartContext);
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-
-   const { register, handleSubmit, formState: { errors } } = useForm();
-
-   const onSubmit = (data, e) => {
-     const customerData = data;
-     setCustomer(customerData)
-     e.target.reset()
-     handleCloseCart()
-   }
+  const onSubmit = (data, e) => {
+    const customerData = data;
+    setCustomer(customerData)
+    e.target.reset()
+    handleCloseCart()
+  }
 
    useEffect(() => {
      console.log(order)
@@ -27,7 +25,7 @@ const OrderConfirm = ({ cartTotal, handleCloseCart, maxHeight, handleSteps }) =>
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Modal.Body style={{ height: maxHeight }}>
-        <div className='col-md-3'>
+        <div className='col-md-3 mb-3 p-0'>
           <input 
             type="text" 
             placeholder="Nombre" 
@@ -35,13 +33,29 @@ const OrderConfirm = ({ cartTotal, handleCloseCart, maxHeight, handleSteps }) =>
             className='form-control'
           />
         </div>
-        <div className='col-md-3'>
+        <div className='col-md-3 mb-4 p-0'>
           <textarea 
             placeholder='Comentarios adicionales'
             {...register("Comentarios adicionales", { maxLength: 500})} 
             className='form-control'
             rows={3}
           />
+        </div>
+        <div className='order-resume-container p-3'>
+          <span className='d-block mb-3 border-bottom'>Su pedido</span>
+            {cartItems.map(item => {
+              const itemTotal = item.amount * parseInt(item.price);
+              return (
+                <div key={item.id} className='item-resume-container mb-2'>
+                  <div className='order-resume-info'>
+                    <span>{item.dish} x {item.amount}u.</span>
+                  </div>
+                  <div className='order-resume-amouunt'>
+                    {`$${itemTotal}`}
+                  </div>
+                </div>
+              )
+            })}
         </div>
       </Modal.Body>
         <div className='modal-footer-container'>
