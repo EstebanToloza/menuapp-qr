@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import OrderConfirm from './OrderConfirm';
 import OrderSummary from './OrderSummary';
+import { useForm } from 'react-hook-form';
+import { CartContext } from '../context/CartContext';
+
+
 
 
 const CartCheckout = ({cartItems, showCart, setShowCart}) => {
     const handleCloseCart = () => setShowCart(false);
+
     const cartTotal = cartItems.reduce((prev, current) => prev + current.amount * current.price, 0);
     const checkoutSteps = {
         STEP_SUMMARY : 0,
@@ -29,6 +34,8 @@ const CartCheckout = ({cartItems, showCart, setShowCart}) => {
 
     
 
+    
+
     const handleSteps = () => {
         if (step === checkoutSteps.STEP_SUMMARY) {
             setStep(checkoutSteps.STEP_CONFIRM)
@@ -38,37 +45,40 @@ const CartCheckout = ({cartItems, showCart, setShowCart}) => {
         }
     }
 
-    // const handleSubmit = () => {
-
-    // }
-
     return (
         <Modal show={showCart} onHide={handleCloseCart} centered>
             <Modal.Header closeButton>
                 <Modal.Title>Orden Mesa 2</Modal.Title>
             </Modal.Header>
-            <Modal.Body style={{ height: maxHeight }}>
-                {step === checkoutSteps.STEP_SUMMARY && <OrderSummary cartItems={cartItems} cartTotal={cartTotal} setStep={setStep} checkoutSteps={checkoutSteps} />}
-                {step === checkoutSteps.STEP_CONFIRM && <OrderConfirm cartItems={cartItems} cartTotal={cartTotal} setStep={setStep} checkoutSteps={checkoutSteps} />}
-            </Modal.Body>
-            <div className='modal-footer-container'>
-                <div className='cart-total-container d-flex justify-content-between'>
-                    <span className='total-text'>Total a pagar:</span>
-                    <span className='total-price'>{`$${cartTotal}`}</span>
-                </div>
-                <div className='mx-auto text-center mt-4'>
-                    {step === checkoutSteps.STEP_SUMMARY && 
-                        <>
-                            <button className='btn btn-block btn-make-order' onClick={handleSteps}>
-                                CONFIRMAR PEDIDO
-                            </button>
-                            <button className='btn btn-block btn-edit-order' onClick={handleCloseCart}>
-                                AGREGAR PRODUCTOS
-                            </button>
-                        </>
-                    }
-                </div>
-            </div>
+            {step === checkoutSteps.STEP_SUMMARY && 
+                <OrderSummary 
+                    cartItems={cartItems} 
+                    cartTotal={cartTotal} 
+                    setStep={setStep} 
+                    checkoutSteps={checkoutSteps} 
+                    handleSteps={handleSteps}
+                    step={step}
+                    maxHeight={maxHeight}
+                    handleCloseCart={handleCloseCart}
+                />
+            }
+            {step === checkoutSteps.STEP_CONFIRM && 
+                <OrderConfirm 
+                    cartItems={cartItems} 
+                    cartTotal={cartTotal} 
+                    step={step}
+                    setStep={setStep} 
+                    checkoutSteps={checkoutSteps} 
+                    //handleSubmit={handleSubmit}
+                    handleCloseCart={handleCloseCart}
+                    //onSubmit={onSubmit}
+                    //register={register}
+                    maxHeight={maxHeight}
+                    handleSteps={handleSteps}
+                />
+            }
+
+
         </Modal>
     )
 }
