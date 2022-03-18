@@ -77,10 +77,15 @@ const CartProvider = ({ children }) => {
     cartItems
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+    setCustomer([]);
+  }
+
   return (
     /* Envolvemos el children con el provider y le pasamos un objeto con las propiedades que necesitamos por value */
     <CartContext.Provider
-      value={{ cartItems, AddItemToCart, DeleteItemToCart, customer, setCustomer, order }}
+      value={{ cartItems, AddItemToCart, DeleteItemToCart, customer, setCustomer, order, clearCart }}
     >
       {children}
     </CartContext.Provider>

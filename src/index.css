@@ -223,6 +223,7 @@ main {
 .btn-edit-order {
   background-color: var(--color-mustard) !important;
   color: var(--color-dark-green) !important;
+  flex: 50%;
 }
 
 .modal-footer-container {

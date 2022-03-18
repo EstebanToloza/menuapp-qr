@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 
 
 const OrderConfirm = ({ cartTotal, handleCloseCart, maxHeight, handleSteps }) => {
-  const { setCustomer, cartItems } = useContext(CartContext);
+  const { setCustomer, cartItems, clearCart } = useContext(CartContext);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data, e) => {
@@ -70,9 +70,14 @@ const OrderConfirm = ({ cartTotal, handleCloseCart, maxHeight, handleSteps }) =>
                 <button type='submit' className='btn btn-block btn-make-order'>
                     REALIZAR PEDIDO
                 </button>
-                <button type='button' className='btn btn-block btn-edit-order' onClick={handleSteps}>
-                    EDITAR PEDIDO
-                </button>
+                <div className='d-flex mt-2'>
+                  <button type='button' className='btn btn-edit-order mr-1' onClick={handleSteps}>
+                      EDITAR PEDIDO
+                  </button>
+                  <button type='button' className='btn btn-edit-order ml-1' onClick={clearCart}>
+                      LIMPIAR CARRITO
+                  </button>
+                </div>
             </div>
           </div>
         </div>
