@@ -21,6 +21,7 @@ const OrderConfirm = ({ cartTotal, handleCloseCart, maxHeight, handleSteps }) =>
     const additionalComments = data.additionalComments?.length ? `*Comentarios adicionales:* ${data.additionalComments}` : '';
     const fullMessage = `${customerText}${productsText}${additionalComments}`;
     window.open(`https://wa.me/${wspNumber}/?text=${encodeURIComponent(fullMessage)}`, "_blank");
+    clearCart();
   }
 
   return (
