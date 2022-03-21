@@ -27,7 +27,7 @@ const OrderConfirm = ({ cartTotal, handleCloseCart, maxHeight, handleSteps }) =>
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='needs-validation'>
       <Modal.Body style={{ height: maxHeight }}>
-        <div className='col-md-3 mb-4 p-0 position-relative'>
+        <div className='mb-4 p-0 position-relative'>
           <input 
             type="text" 
             placeholder="Nombre" 
@@ -36,7 +36,7 @@ const OrderConfirm = ({ cartTotal, handleCloseCart, maxHeight, handleSteps }) =>
           />
           <span className='error-message position-absolute'>{errors.firstName?.type === 'required' && "Ingrese su nombre para poder continuar"}</span>
         </div>
-        <div className='col-md-3 mb-4 p-0'>
+        <div className='mb-4 p-0'>
           <textarea 
             placeholder='Comentarios adicionales'
             {...register("additionalComments", { maxLength: 500})} 

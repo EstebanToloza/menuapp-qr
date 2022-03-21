@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 
 
 const OrderSummary = ({cartItems, cartTotal, maxHeight, handleSteps, handleCloseCart }) => {
-    const { DeleteItemToCart, AddItemToCart } = useContext(CartContext);
+    const { DeleteItemToCart, AddItemToCart, clearCart } = useContext(CartContext);
 
   return (
     <>
@@ -50,9 +50,14 @@ const OrderSummary = ({cartItems, cartTotal, maxHeight, handleSteps, handleClose
                 <button className='btn btn-block btn-make-order' onClick={handleSteps}>
                     CONFIRMAR PEDIDO
                 </button>
-                <button className='btn btn-block btn-edit-order' onClick={handleCloseCart}>
-                    AGREGAR PRODUCTOS
-                </button>
+                <div className='d-flex mt-2'>
+                    <button className='btn btn-block btn-edit-order' onClick={handleCloseCart}>
+                        AGREGAR PRODUCTOS
+                    </button>
+                    <button type='button' className='btn btn-edit-order ml-1' onClick={clearCart}>
+                        LIMPIAR CARRITO
+                    </button>
+                </div>
             </div>
         </div>
     </>
